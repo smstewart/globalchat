@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-configuration PUBLIC  
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"  
+	"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">  
+      
+<hibernate-configuration>  
+      
+	<session-factory>  
+		<property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>  
+		<property name="connection.url">jdbc:postgresql://localhost:5432/full_test_db</property>  
+		<property name="connection.username">globalchat</property>  
+		<property name="connection.password">globalchatpassword</property>
+		<property name="connection.dbname">globalchatdb</property>  
+		<property name="connection.driver_class">org.postgresql.Driver</property>  
+        
+        <property name="connection_pool_size">1</property>
+        <property name="hbm2ddl.auto">create</property>
+          
+		<mapping class="com.globalchat.entity.Message"/>  
+	</session-factory>  
+      
+</hibernate-configuration>  
