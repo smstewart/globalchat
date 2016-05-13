@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
-
 import com.globalchat.entity.Message;
 import com.globalchat.util.SessionUtil;
 
@@ -17,7 +16,7 @@ public class MessageService {
 		Session sess = SessionUtil.getSession();
 		try {
 			Query q = sess.createQuery(
-					"select from Message order by submit_time desc")
+					"from Message order by submit_time desc")
 				.setMaxResults(getMaxResults());
 
 			return q.list();
@@ -30,7 +29,7 @@ public class MessageService {
 		Session sess = SessionUtil.getSession();
 		try {
 			Query q = sess.createQuery(
-					"select from Message where submit_time > :start order by submit_time desc")
+					"from Message where submit_time > :start order by submit_time desc")
 				.setParameter("start", startTime)
 				.setMaxResults(getMaxResults());
 			
@@ -42,5 +41,15 @@ public class MessageService {
 	
 	protected int getMaxResults() {
 		return 100;
+	}
+	
+	public void deleteMessagesForUnitTests() {
+		Session sess = SessionUtil.getSession();
+		try {
+			Query q = sess.createQuery("delete Message");
+			q.executeUpdate();
+		} finally {
+			SessionUtil.closeSession(sess);
+		}
 	}
 }
