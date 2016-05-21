@@ -16,7 +16,7 @@ public class MessageService {
 		Session sess = SessionUtil.getSession();
 		try {
 			Query q = sess.createQuery(
-					"from Message order by submit_time desc")
+					"from Message order by submit_time")
 				.setMaxResults(getMaxResults());
 
 			return q.list();
@@ -29,7 +29,7 @@ public class MessageService {
 		Session sess = SessionUtil.getSession();
 		try {
 			Query q = sess.createQuery(
-					"from Message where submit_time > :start order by submit_time desc")
+					"from Message where submit_time > :start order by submit_time")
 				.setParameter("start", startTime)
 				.setMaxResults(getMaxResults());
 			

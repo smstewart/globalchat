@@ -57,6 +57,9 @@
         	<httpConnector>
         		<port>9022</port>
         	</httpConnector>
+        	<webAppConfig>
+        		<defaultsDescriptor>src/main/webapp/WEB-INF/webdefault.xml</defaultsDescriptor>
+        	</webAppConfig>
         </configuration>
       </plugin>
       <plugin>

@@ -1,0 +1,10 @@
+.message {
+	background-color: lightblue;
+	margin-top: 5px;
+}
+
+#chatBox {
+	height: 600px;
+	width: 900px;
+	overflow: auto;
+}

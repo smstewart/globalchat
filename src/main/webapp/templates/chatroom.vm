@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="css/chatroom.css">
+
+<title>Global Chat</title>
+
+</head>
+
+<body>
+<h2>Welcome to GlobalChat</h2>
+
+<div id="chatBox">
+#foreach ($message in $messages)
+    <div class="message">
+		<h4>$message.getAuthor()</h4>
+		<p>$message.getContent()</p>
+	</div>
+#end
+</div>
+
+<form action="/" method="post">
+	Author:
+	<input type="text" name="author"></br>
+	Message:</br>
+	<input type="text" name="text"></br>
+	<input type="submit">
+</form>
+</body>
+
+<script>
+var objDiv = document.getElementById("chatBox");
+objDiv.scrollTop = objDiv.scrollHeight;
+</script>
+
+</html>

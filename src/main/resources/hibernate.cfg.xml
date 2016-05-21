@@ -14,7 +14,6 @@
 		<property name="connection.driver_class">org.postgresql.Driver</property>  
         
         <property name="connection_pool_size">1</property>
-        <property name="hbm2ddl.auto">create</property>
           
 		<mapping class="com.globalchat.entity.Message"/>  
 	</session-factory>  
