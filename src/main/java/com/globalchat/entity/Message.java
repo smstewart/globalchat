@@ -19,8 +19,9 @@ public class Message extends BaseEntity {
 	private long id;
 	
 	private String author;
-	private String text;
+	private String content;
 	private long submit_time;
+	
 	public long getId() {
 		return id;
 	}
@@ -33,25 +34,25 @@ public class Message extends BaseEntity {
 	public void setAuthor(String author) {
 		this.author = author;
 	}
-	public String getText() {
-		return text;
+	public String getContent() {
+		return content;
 	}
-	public void setText(String text) {
-		this.text = text;
+	public void setContent(String text) {
+		this.content = text;
 	}
-	public long getSubmit_time() {
+	public long getSubmitTime() {
 		return submit_time;
 	}
-	public void setSubmit_time(long submit_time) {
+	public void setSubmitTime(long submit_time) {
 		this.submit_time = submit_time;
 	}
 	
-	public static Message createMessage(String author, String text) {
+	public static Message createMessage(String author, String content) {
 		Message m = new Message();
 		
-		m.setSubmit_time(System.currentTimeMillis());
+		m.setSubmitTime(System.currentTimeMillis());
 		m.setAuthor(author);
-		m.setText(text);
+		m.setContent(content);
 		
 		m.save();
 		

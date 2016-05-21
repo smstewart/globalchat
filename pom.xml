@@ -79,6 +79,16 @@
           <mainClass>com.globalchat.servlet.ChatRoomServlet</mainClass>
         </configuration>
       </plugin>
+      <plugin>
+	    <groupId>org.flywaydb</groupId>
+	    <artifactId>flyway-maven-plugin</artifactId>
+	    <version>4.0.1</version>
+	    <configuration>
+		  <url>jdbc:postgresql://localhost:5432/globalchatdb</url>
+		  <user>globalchat</user>
+		  <password>globalchatpassword</password>
+	    </configuration>
+      </plugin>
     </plugins>
     
     <resources>

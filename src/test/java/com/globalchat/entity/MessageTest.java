@@ -29,6 +29,6 @@ public class MessageTest {
 		Message loaded = messages.get(0);
 		
 		assertEquals(m.getAuthor(), loaded.getAuthor());
-		assertEquals(m.getText(), loaded.getText());
+		assertEquals(m.getContent(), loaded.getContent());
 	}
 }

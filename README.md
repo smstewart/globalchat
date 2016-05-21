@@ -14,7 +14,7 @@ web server</br></br>
 	<li>CREATE DATABASE globalchatdb;</li>
 	<li>CREATE DATABASE globalchat_test_db;</li>
 	<li>CREATE USER globalchat WITH PASSWORD 'globalchatpassword';</li>
-	<li>GRANT ALL PRIVILEGES ON DATABASE globalchat TO globalchat;</li>
+	<li>GRANT ALL PRIVILEGES ON DATABASE globalchatdb TO globalchat;</li>
 	<li>GRANT ALL PRIVILEGES ON DATABASE globalchat_test_db TO globalchat;</li>
 </ul>
 <h3>Maven Commands</h3>
@@ -22,4 +22,8 @@ web server</br></br>
 	<li>mvn compile</li>
 	<li>mvn test</li>
 	<li>mvn jetty:run</li>
+</ul>
+To migrate db:
+<ul>
+	<li>mvn flyway:migrate</li>
 </ul>
