@@ -49,7 +49,7 @@ public class ChatRoomServlet extends HttpServlet {
 
 			Message.createMessage(author, text);
 
-			doGet(request, response);
+			response.setStatus(HttpServletResponse.SC_OK);
 		} catch (Exception e) {
 			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 		}

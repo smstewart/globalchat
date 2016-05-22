@@ -15,11 +15,11 @@
 #parse( "templates/message_template.vm" )
 </div>
 
-<form action="/" method="post">
+<form onsubmit="return postMessage()">
 	Author:
-	<input type="text" name="author"></br>
+	<input type="text" id="author" name="author"></br>
 	Message:</br>
-	<input type="text" name="text"></br>
+	<input type="text" id="text" name="text"></br>
 	<input type="submit" value="Post">
 </form>
 </body>

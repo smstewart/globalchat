@@ -3,7 +3,20 @@ function scrollToBottom() {
 	$("#chatBox").scrollTop($("#chatBox")[0].scrollHeight);
 }
 // Async post function
-
+function postMessage() {
+	var author = $("#author").val();
+	var text = $("#text").val();
+	var params = {author: author, text: text};
+	
+	$.post(
+		"/", 
+		params,
+		function() {
+			$("#text").val("");
+		}
+	);
+	return false;
+}
 // Polling function
 function poll() {
 	window.setTimeout(updateMessages, 1000);
