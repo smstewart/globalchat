@@ -1,0 +1,6 @@
+#foreach ($message in $messages)
+    <div class="message">
+		<h4>$message.getAuthor()</h4>
+		<p>$message.getContent()</p>
+	</div>
+#end

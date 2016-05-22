@@ -16,14 +16,29 @@ import com.globalchat.util.VelocityUtil;
 
 public class ChatRoomServlet extends HttpServlet {
 	private final static String CHATROOM_TEMPLATE = "chatroom.vm";
+	private final static String MESSAGE_TEMPLATE = "message_template.vm";
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		List<Message> messages = new MessageService().getRecentMessages();
+		List<Message> messages;
 		VelocityContext context = new VelocityContext();
+		String template;
+		String updateString = request.getParameter("update");
+		if (updateString == null) {
+			messages = new MessageService().getRecentMessages();
+			template = CHATROOM_TEMPLATE;
+		} else {
+			messages = new MessageService().getRecentMessages(Long.parseLong(updateString));
+			template = MESSAGE_TEMPLATE;
+		}	
 		context.put("messages", messages);
-		
-		VelocityUtil.writeFileToResponse(response, CHATROOM_TEMPLATE, context);
+		if (messages.size() > 0) {
+			long latestTime = messages.get(messages.size() -1).getSubmitTime();
+			context.put("latestUpdate", latestTime);
+		} else {
+			context.put("latestUpdate", System.currentTimeMillis());
+		}
+		VelocityUtil.writeFileToResponse(response, template, context);
 	}
 	
 	@Override
