@@ -3,14 +3,13 @@
 <head>
 <link rel="stylesheet" href="css/chatroom.css">
 <script src="js/jquery-2.2.0.js"></script>
+<script src="js/chatroom.js"></script>
 <title>Global Chat</title>
 
 </head>
 
 <body>
 <h2>Welcome to GlobalChat</h2>
-
-<input type="hidden" id="lastUpdate" value="$latestUpdate">
 
 <div id="chatBox">
 #parse( "templates/message_template.vm" )
@@ -26,7 +25,8 @@
 </body>
 
 <script>
-$("#chatBox").scrollTop($("#chatBox")[0].scrollHeight);
+scrollToBottom();
+poll();
 </script>
 
 </html>

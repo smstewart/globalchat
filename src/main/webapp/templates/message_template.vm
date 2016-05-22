@@ -1,6 +1,9 @@
 #foreach ($message in $messages)
     <div class="message">
-		<h4>$message.getAuthor()</h4>
-		<p>$message.getContent()</p>
+    <input type="hidden" id="lastUpdate" value="$message.getSubmitTime()">
+    	<p>
+		<b>$message.getAuthor()</b></br>
+		$message.getContent()
+		</p>
 	</div>
 #end
